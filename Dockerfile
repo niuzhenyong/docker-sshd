@@ -1,6 +1,6 @@
 FROM centos/systemd
 
-MAINTAINER Niu Zhenyong <niuzhenyong@qq.com>
+LABEL maintainer Niu Zhenyong <niuzhenyong@qq.com>
 
 RUN yum install -y openssh-server && \
     yum clean all
@@ -20,7 +20,7 @@ RUN sed -i -r 's/^(.*pam_nologin.so)/#\1/' /etc/pam.d/sshd && \
     echo "exec /usr/sbin/init" >> /usr/local/bin/entrypoint.sh && \
     chmod +x /usr/local/bin/entrypoint.sh
 
-ENV USERNAME=niu PASSWORD=niu
+ENV USERNAME=admin PASSWORD=admin
 
 VOLUME [ "/home" ]
 
